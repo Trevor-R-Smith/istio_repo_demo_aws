@@ -1,0 +1,18 @@
+---
+
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: transfer-service-gw
+spec:
+  selector:
+    istio: ingressgateway # Specify the ingressgateway created for us
+  servers:
+    - port:
+        number: 8092 # Service port to watch
+        name: http-transfer-service
+        protocol: HTTP
+      hosts:
+        - "a0367d506e43111e992730264510012f-77131802.eu-west-1.elb.amazonaws.com"
+
+---

@@ -1,0 +1,12 @@
+---
+
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: transfer-service
+spec:
+  host: transfer-service
+  trafficPolicy:
+    tls:
+      mode: DISABLE
+---

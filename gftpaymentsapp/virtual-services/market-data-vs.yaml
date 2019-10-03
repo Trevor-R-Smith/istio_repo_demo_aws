@@ -1,0 +1,21 @@
+---
+
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: market-data-vs
+spec:
+  hosts:
+    - "a0367d506e43111e992730264510012f-77131802.eu-west-1.elb.amazonaws.com"
+  gateways:
+    - market-data-gw
+  http:
+    - match:
+        - port: 8093 # Port, must match what was used in Gateway
+      route:
+        - destination:
+            host: market-data # Destination service, must match service name
+            subset: v1
+
+---
+           
