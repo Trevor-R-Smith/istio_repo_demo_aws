@@ -13,5 +13,5 @@ spec:
         name: http
         protocol: HTTP
       hosts:
-        - "a0367d506e43111e992730264510012f-77131802.eu-west-1.elb.amazonaws.com" # Host to watch on, could be "*"
+        - "*"
 ---

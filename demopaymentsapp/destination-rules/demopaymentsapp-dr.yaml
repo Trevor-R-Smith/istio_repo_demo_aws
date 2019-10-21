@@ -3,7 +3,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-  name: payments-app
+  name: payments-app-dr
 spec:
   host: payments-app
   trafficPolicy:

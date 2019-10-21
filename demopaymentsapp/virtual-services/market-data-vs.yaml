@@ -1,0 +1,25 @@
+---
+
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: market-data-vs
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - payments-app-gw
+  http:
+    - match:
+        - uri:
+            prefix: /market-data/
+      rewrite:
+        uri: /api/
+      route:
+        - destination:
+            host: market-data.default.svc.cluster.local
+            port:
+              number: 80
+
+---
+           

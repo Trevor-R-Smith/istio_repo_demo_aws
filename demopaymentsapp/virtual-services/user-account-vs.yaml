@@ -1,0 +1,24 @@
+---
+
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: user-account-vs
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - payments-app-gw
+  http:
+    - match:
+        - uri:
+            prefix: /user-account/
+      rewrite:
+        uri: /api/
+      route:
+        - destination:
+            host: user-account.default.svc.cluster.local
+            port:
+              number: 80
+
+---

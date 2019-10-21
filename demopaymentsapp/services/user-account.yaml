@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: user-account
-          image: 582230774551.dkr.ecr.eu-west-1.amazonaws.com/user-account
+          image: 582230774551.dkr.ecr.eu-west-1.amazonaws.com/user-account:10
           resources:
             requests:
               cpu: "100m"
@@ -32,8 +32,9 @@ metadata:
     app: user-account
 spec:
   ports:
-    - port: 8091
+    - port: 80
       name: http-user-accounts
+      targetPort: 8091
   selector:
     app: user-account
 ---
